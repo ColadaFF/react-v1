@@ -1,11 +1,14 @@
 import { render } from 'react-dom';
 import React from 'react';
-import Title from './components/title';
-import Button from './components/button';
+// import Title from './components/title';
+// import Button from './components/button';
 // import DataLoader from './components/DataLoader';
-import Select from './components/combo';
+// import Select from './components/combo';
+import { Provider } from 'react-redux';
+import Store from './store';
+import Persons from './components/persons';
 
-const options = [
+/* const options = [
   {
     label: 'Sí',
     value: '1',
@@ -18,16 +21,12 @@ const options = [
     label: 'Quizá',
     value: '3',
   },
-];
+]; */
 
 const App = () => (
-  <div>
-    <Title title="Hello world, Daniel!" style={{ textAlign: 'center', color: 'blue' }} />
-    <Title title="Hello world, Daniel!" style={{ textAlign: 'center', color: 'red' }} />
-    <Title title="Hello world, Daniel!" style={{ textAlign: 'center', color: 'green' }} />
-    <Button name="Hello button" />
-    <Select options={options} />
-  </div>
+  <Provider store={Store}>
+    <Persons />
+  </Provider>
 );
 
 render(<App />, document.getElementById('root'));
